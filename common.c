@@ -12,7 +12,7 @@ void parseBounds(char *s2, int *vals, int mult) {
     char *p, *s = strdup(s2), *end;
     int i, v;
     long tempV;
-
+    errno = 0;
     p = strtok(s, ",");
     tempV = strtol(p, &end, 10);
     if((errno == ERANGE && (tempV == LONG_MAX || tempV == LONG_MIN)) || (errno != 0 && tempV == 0) || end == p) v = -1;
